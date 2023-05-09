@@ -1,4 +1,4 @@
-# f2window
+# practice01
 
 ## Project setup
 ```
