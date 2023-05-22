@@ -68,21 +68,21 @@
                     }"
                     :cell-style=changeCellStyle
                 >
-                    <el-table-column align="center" type="index" label="No." width="50" />
-                    <el-table-column align="center" prop="date" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_xxxx" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
-                    <el-table-column align="center" prop="name" label="NR_qqqq" width="80" />
+                    <el-table-column align="center" type="index" label="No." min-width="50" />
+                    <el-table-column align="center" prop="date" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_xxxx" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
+                    <el-table-column align="center" prop="name" label="NR_qqqq" min-width="80" />
                 </el-table>
             </div>
             

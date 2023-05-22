@@ -6,7 +6,7 @@
         <el-col :span="14">
           <el-tabs v-model="TabLeft" class="demo-tabs" @tab-click="handleClick">
             <el-tab-pane class="demo-tabs-content" label="Actual" name="first">
-              <el-table  :data="ActualData" border style=" width: 100% font-size:small;"
+              <el-table  :data="ActualData" border  fit height="200px" style=" width: 100% font-size:small;"
                 :header-cell-style="{
                   'text-align': 'center',
                   'background-color': 'hsl(226, 12%, 44%)',
@@ -30,7 +30,7 @@
         <el-col :span="10">
           <el-tabs v-model="TabRight" class="demo-tabs" @tab-click="handleClick">
             <el-tab-pane class="demo-tabs-content" label="User" name="first">
-              <el-table :data="VolumeData" border style="width: 100%"
+              <el-table :data="VolumeData" border height="200px" style="width: 100%"
                 :header-cell-style="{
                     'text-align': 'center',
                     'background-color': 'hsl(226, 12%, 44%)',
@@ -48,6 +48,43 @@
           </el-tabs>
         </el-col>
       </el-row>
+      <div class="table3">
+        <el-menu
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        background-color="transparent"
+        text-color="bisque"
+        active-text-color="white"
+        mode="horizontal"
+        :ellipsis="ellipsis"
+      >
+        <el-menu-item index="0">LOGO</el-menu-item>
+        <el-menu-item index="1">Processing Center</el-menu-item>
+        <div class="flex-grow" />
+        <el-menu-item index="2">
+          <div class="demo-date-picker">
+            <div class="block">
+              <el-date-picker
+                v-model="value1"
+                type="daterange"
+                range-separator="To"
+                start-placeholder="Start date"
+                end-placeholder="End date"
+                size="small"
+              />
+            </div>
+          </div>
+        </el-menu-item>
+        
+      </el-menu>
+      <el-table :data="table3" style="width: 100%" size="small"
+        :header-row-style="{'background-color': 'transparent',}"
+        :header-cell-style="{'background-color': 'transparent'}"
+        :cell-style="{'background-color':'#63697e', 'color':'white', }">
+        <el-table-column v-for="item in table3_head" :prop="item" :key="item.id" :label="item" min-width="80"/>
+        <!-- <el-table-column  v-for="(info) in table3" :prop="info.date" :label="info.label" :key="info.id" min-width="80" /> -->
+      </el-table>
+      </div>
       
     </div>
   </div>
@@ -66,6 +103,9 @@ export default {
   setup(){
     const TabLeft = ref('first')
     const TabRight = ref('first')
+    const activeIndex = ref('1')
+    const value1 = ref('')
+    const ellipsis = ref(false)
     let ActualData = reactive([
       {
         status:600,
@@ -105,6 +145,45 @@ export default {
         time:null
       },
     ])
+    let table3 = reactive([
+        {
+          date:'20221102',
+          label:'date',
+          id:1,
+          series:'G28',
+          type:'352Li',
+          f2Vol:'500U',
+          OnTime:'500U',
+          Late: '800U',
+          Early:'400U',
+          percent:'50%',
+        },
+        {
+          date:'20221102',
+          label:'date',
+          id:2,
+          series:'G28',
+          type:'352Li',
+          f2Vol:'500U',
+          OnTime:'500U',
+          Late: '800U',
+          Early:'400U',
+          percent:'50%',
+        },
+        {
+          date:'20221102',
+          label:'date',
+          id:3,
+          series:'G28',
+          type:'352Li',
+          f2Vol:'500U',
+          OnTime:'500U',
+          Late: '800U',
+          Early:'400U',
+          percent:'50%',
+        },
+      ])
+    let table3_head = reactive(Object.keys(table3[0]))
 
     const handleClick = (TabsPaneContext) => {
       console.log(TabsPaneContext)
@@ -134,6 +213,11 @@ export default {
       ActualData,
       changeCellStyle,
       VolumeData,
+      activeIndex,
+      value1,
+      ellipsis,
+      table3,
+      table3_head,
     }
   }
 }
@@ -164,7 +248,7 @@ export default {
   /* color: white; */
   font-size: 32px;
   font-weight: 600;
-  background-color: hsl(226, 12%, 44%);
+  background-color: #63697e;
 }
 
 
@@ -187,5 +271,65 @@ export default {
 ::v-deep .el-table--border .el-table__inner-wrapper::after{
   background-color:#36364a;
 }
+.demo-tabs >>> .el-tabs__header{
+  margin:0
+}
+.demo-tabs >>> .el-scrollbar__view{
+  height: 100%;
+}
+.demo-tabs >>> .el-table__body{
+  height: 100%;
+}
+.demo-tabs >>> .el-table__inner-wrapper::before{
+  height: 0;
+}
+.demo-tabs >>> .el-table--border::after{
+  width: 0;
+}
+::v-deep .el-table tr th:first-child {
+  border-left: 1px solid #36364a;
+}
 
+
+
+/* table3 */
+.table3{
+  margin: 10px 10px;
+  background-color: hsl(226, 12%, 44%);
+}
+.flex-grow {
+  flex-grow: 1;
+}
+
+
+.demo-date-picker {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.demo-date-picker .block {
+  margin-top: -15px;
+  text-align: center;
+  border-right: solid 1px var(--el-border-color);
+  flex: 1;
+}
+
+.demo-date-picker .block:last-child {
+  border-right: none;
+}
+ .block >>> .el-input__wrapper{
+  background-color: transparent;
+ }
+
+ /* .table3 >>> .el-table th.el-table__cell{
+  background-color: transparent; 
+ }
+ .table3 >>> .el-table tr{
+  background-color: transparent;
+ } */
+ .table3 .el-table-border{
+  border:  1px solid #36364a;
+ }
 </style>

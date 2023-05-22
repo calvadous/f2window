@@ -19,6 +19,14 @@ const routes = [
     path:'/actual',
     name:'actual',
     component: () => import('@/views/Actual/ActualTable.vue')
+  },
+  {
+    path:'/contrast',
+    name:'contrast',
+    component: () => import('@/views/contrast/contrastPage.vue'),
+    meta:{
+      keepAlive:true,
+    },
   }
 ]
 
